@@ -31,7 +31,7 @@ function getQueryBasedOnOptions(option: string, query: string) {
         "glassdoor.com", "uk.indeed.com",
         "jobs.ashbyhq.com",
         "jobs.*.com/*"
-      ].map(x => `site:http://${x}`).join(" | ")
+      ].map(x => `site:http://${x}`).join(" | ").concat(' | site:https://*.turbohire.co')
       return sites + `(developer | engineer) "remote" "${query}" after:${firstDayOfMonth}`
     default:
       return query;
