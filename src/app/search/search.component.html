@@ -1,0 +1,7 @@
+<select #select>
+    @for (item of options; track $index) {
+        <option>{{item}}</option>
+    }
+</select>
+<input placeholder="search" #input/>
+<button (click)="searchGoogle(select.value, input.value)">search</button>
