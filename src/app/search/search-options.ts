@@ -10,11 +10,16 @@ const site = (url: string) => `site:${url}`;
 const option = (name: string, url: string | string[]) => 
         ({name, query: (query: string) => (Array.isArray(url) ? url.map(u => site(u)).join(' | '): site(url)) + ` ${query}`});
 
+const collegeSearch = {
+    name: 'College Materials',
+    query: query => 'https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=' + query + '&btnG='
+}
 export const options: options[] = [
     {
         name: "Obsidian Notes",
         query: query => `inurl:publish.obsidian.md/* "${query}"`
     },
+    // collegeSearch,
     {
         name: 'Notion handbook',
         query: (query) => `site:*.notion.site/* "Handbook" ${query}`
