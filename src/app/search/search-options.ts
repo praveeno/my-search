@@ -52,3 +52,18 @@ export const options: options[] = [
         ]
     }
 ];
+
+
+
+
+
+
+
+
+// ----
+export const others = [
+    {url: 'https://filepursuit.com/'},
+    {url: 'http://palined.com/search/'},
+    {url: 'https://odcrawler.xyz/'},
+    {url: 'https://github.com/Tobee1406/Awesome-Google-Dorks?tab=readme-ov-file'}
+]

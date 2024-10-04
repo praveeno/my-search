@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { options } from './search-options';
+import { options, others } from './search-options';
 
 @Component({
   selector: 'app-search',
@@ -15,6 +15,8 @@ export class SearchComponent {
     const encodedQuery = encodeURIComponent(search(options, option, query));
     const googleUrl = `https://www.google.com/search?q=${encodedQuery}`;
     window.open(googleUrl, '_blank');
+
+    console.table(others);
   }
 }
 
