@@ -22,27 +22,22 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Install 🔧
-        run: yarn install
-      - name: Build 🏗️
-        run: |
-          yarn cache clean
-          yarn build:prod
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          path: './dist/myapp/broswer'
+          node-version: 20
+
+      - name: Build Angular app to prod
+        run: npm install && npm run build:prod
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist/browser
+          branch: prod  
+          token: ${{ secrets.GITHUB_TOKEN }}
