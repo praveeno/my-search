@@ -30,7 +30,7 @@ export const options: options[] = [
         },
         children: [
             option('jooble', 'jooble.org'),
-            option('lever', 'lever.co'),
+            option('lever', 'jobs.lever.co'),
             option('greenhouse', ['greenhouse.io', 'greenhouse.com']),
             option('join', 'join.com/*/*'),
             option('personio', 'personio.com'),

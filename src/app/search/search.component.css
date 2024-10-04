@@ -1,4 +1,10 @@
 :host {
     display: flex;
-    gap: 16px
+    gap: 16px;
+    flex-wrap: wrap;
+
+}
+select, input, button {
+    flex: 1;
+    width: 100vw;
 }
