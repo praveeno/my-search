@@ -20,6 +20,10 @@ export const options: options[] = [
         query: (query) => `site:*.notion.site/* "Handbook" ${query}`
     },
     {
+        name: 'Google Drive',
+        query: (query) => `site:drive.google.com ${query}`
+    },
+    {
         name:  "Job Search",
         query(query) {
             return (this.children?.map(c => c.query('')).join(' | ') + ' ' + query) as string;
