@@ -1,6 +1,15 @@
 <select #select>
     @for (item of options; track $index) {
-        <option>{{item}}</option>
+        <option>{{item.name}}</option>
+        @if (item.children) {
+            <select>
+            </select>
+            <optgroup [label]="item.name + ' ' + 'options'">
+                @for (child of item.children; track $index) {
+                    <option>{{child.name}}</option>
+                }
+              </optgroup>
+        }
     }
 </select>
 <input placeholder="search" #input/>
